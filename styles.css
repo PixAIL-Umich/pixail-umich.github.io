@@ -24,6 +24,10 @@
     /* Michigan-specific gradients */
     --umich-gradient: linear-gradient(135deg, #00274c 0%, #001a33 50%, #ffcb05 100%);
     --umich-gradient-subtle: linear-gradient(135deg, rgba(0, 39, 76, 0.9) 0%, rgba(255, 203, 5, 0.1) 100%);
+    
+    /* 动态导航栏高度 */
+    --navbar-height: 4rem;
+    --vh: 1vh;
 }
 
 html {
@@ -62,6 +66,8 @@ body {
     z-index: 1000;
     transition: var(--transition);
     padding: 0.75rem 0;
+    min-height: 4rem; /* 确保导航栏有最小高度 */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .unified-navbar.scrolled {
@@ -180,6 +186,13 @@ body {
     flex-direction: column;
     cursor: pointer;
     gap: 4px;
+    padding: 8px;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.hamburger:hover {
+    background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hamburger .bar {
@@ -187,7 +200,7 @@ body {
     height: 3px;
     background: white;
     border-radius: 2px;
-    transition: var(--transition);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .hamburger.active .bar:nth-child(1) {
@@ -196,15 +209,36 @@ body {
 
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
+    transform: translateX(-20px);
 }
 
 .hamburger.active .bar:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
+/* 移动菜单遮罩 */
+.nav-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.nav-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
 /* 主页部分 */
 .hero {
     min-height: 100vh;
+    min-height: calc(var(--vh, 1vh) * 100); /* 移动设备优化 */
     display: flex;
     align-items: center;
     background: var(--umich-gradient);
@@ -419,7 +453,7 @@ body {
 /* 通用部分样式 */
 section {
     padding: 5rem 0;
-    scroll-margin-top: 5rem; /* 为统一导航栏留出空间 */
+    scroll-margin-top: calc(4rem + 1rem); /* 导航栏高度 + 额外缓冲 */
     position: relative;
     z-index: 1; /* 确保所有section都在Hero之上 */
 }
@@ -1075,11 +1109,13 @@ section {
         background-color: var(--primary-color);
         width: 100%;
         text-align: center;
-        transition: 0.3s;
-        box-shadow: var(--shadow-lg);
+        transition: left 0.3s ease-in-out;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
         padding: 2rem 0;
         justify-content: flex-start;
-        z-index: 999;
+        z-index: 1001; /* 确保在导航栏之上 */
+        max-height: calc(100vh - 4rem);
+        overflow-y: auto;
     }
     
     .nav-menu.active {
@@ -1092,14 +1128,30 @@ section {
         min-width: 44px;
         align-items: center;
         justify-content: center;
+        position: relative;
+        z-index: 1002; /* 确保在菜单之上 */
+        cursor: pointer;
+        padding: 8px;
     }
     
     .nav-link {
-        padding: 1.2rem 0;
+        padding: 1.2rem 2rem;
         min-height: 44px;
         display: flex;
         align-items: center;
         justify-content: center;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s ease;
+    }
+    
+    .nav-link:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+        color: var(--secondary-color);
+    }
+    
+    .nav-link:last-child {
+        border-bottom: none;
     }
     
     /* 移动设备统一导航栏调整 */
@@ -1107,6 +1159,9 @@ section {
         padding: 0.5rem 0;
         height: auto;
         min-height: 4rem;
+        position: fixed;
+        width: 100%;
+        top: 0;
     }
     
     /* 调整页面内容的上边距 */
@@ -1116,6 +1171,7 @@ section {
     
     .hero {
         padding-top: 5rem;
+        min-height: calc(100vh - 4rem);
     }
     
     .unified-container {
@@ -1165,7 +1221,7 @@ section {
     
     /* 移动设备上调整滚动偏移 */
     section {
-        scroll-margin-top: 4rem;
+        scroll-margin-top: calc(4rem + 1rem); /* 导航栏高度 + 缓冲 */
     }
     
     .hero-title {
@@ -2649,6 +2705,41 @@ section {
     .cross-symbol::after {
         width: 0.7em;
         height: 1.5px;
+    }
+}
+
+/* 移动设备触摸优化 */
+@media (max-width: 768px) {
+    /* 改进触摸目标大小 */
+    .nav-link,
+    .btn,
+    .social-link,
+    .hamburger {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* 防止文本选择干扰触摸 */
+    .nav-menu,
+    .hamburger,
+    .btn {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+    }
+    
+    /* 改进滚动性能 */
+    body {
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    /* 防止双击缩放 */
+    .nav-link,
+    .btn,
+    .hamburger {
+        touch-action: manipulation;
     }
 }
 

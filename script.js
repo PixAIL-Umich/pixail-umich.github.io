@@ -15,9 +15,19 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // 汉堡菜单切换
-    hamburger.addEventListener('click', function() {
+    hamburger.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
         hamburger.classList.toggle('active');
         navMenu.classList.toggle('active');
+        
+        // 防止背景滚动
+        if (navMenu.classList.contains('active')) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
     });
 
     // 点击导航链接时关闭移动菜单并平滑滚动
@@ -28,13 +38,36 @@ document.addEventListener('DOMContentLoaded', function() {
             // 只对内部锚点链接阻止默认行为并使用平滑滚动
             if (targetId.startsWith('#')) {
                 e.preventDefault();
-                smoothScrollTo(targetId);
+                
+                // 先关闭移动菜单，然后滚动
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // 稍微延迟滚动，让菜单动画完成
+                setTimeout(() => {
+                    smoothScrollTo(targetId);
+                }, 300);
+            } else {
+                // 对外部链接，也要关闭移动菜单
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // 添加加载指示器（可选）
+                this.style.opacity = '0.7';
             }
-            // 对外部链接（teaching.html, contact.html）允许正常跳转
-            
-            // 关闭移动菜单
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+        });
+        
+        // 添加触摸反馈
+        link.addEventListener('touchstart', function() {
+            this.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+        });
+        
+        link.addEventListener('touchend', function() {
+            setTimeout(() => {
+                this.style.backgroundColor = '';
+            }, 150);
         });
     });
 
@@ -42,7 +75,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const sections = document.querySelectorAll('section[id]');
     
     function updateActiveNav() {
-        const scrollPos = window.scrollY + 80; // 与统一导航栏高度匹配 (5rem = 80px)
+        const navbarHeight = navbar.offsetHeight; // 动态获取导航栏高度
+        const scrollPos = window.scrollY + navbarHeight + 20; // 添加额外缓冲
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -357,10 +391,42 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
+    // 移动设备优化
+    function isMobileDevice() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+               window.innerWidth <= 768;
+    }
+    
+    if (isMobileDevice()) {
+        // 防止iOS Safari的橡皮筋效果
+        document.addEventListener('touchmove', function(e) {
+            if (navMenu.classList.contains('active')) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+        
+        // 处理iOS Safari的视口高度问题
+        function setVH() {
+            let vh = window.innerHeight * 0.01;
+            document.documentElement.style.setProperty('--vh', `${vh}px`);
+        }
+        
+        setVH();
+        window.addEventListener('resize', setVH);
+        window.addEventListener('orientationchange', setVH);
+        
+        // 改进触摸反馈
+        document.addEventListener('touchstart', function() {}, { passive: true });
+    }
+    
     // 页面加载完成后的初始化
     setTimeout(() => {
         // 移除加载动画类（如果有的话）
         document.body.classList.add('loaded');
+        
+        // 检查导航栏高度并调整
+        const actualNavHeight = navbar.offsetHeight;
+        document.documentElement.style.setProperty('--navbar-height', `${actualNavHeight}px`);
     }, 100);
 
     // 键盘导航支持
@@ -369,6 +435,40 @@ document.addEventListener('DOMContentLoaded', function() {
         if (e.key === 'Escape' && navMenu.classList.contains('active')) {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // 点击菜单外部关闭菜单
+    document.addEventListener('click', function(e) {
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    });
+    
+    // 触摸支持 - 防止意外点击
+    let touchStartY = 0;
+    document.addEventListener('touchstart', function(e) {
+        touchStartY = e.touches[0].clientY;
+    });
+    
+    document.addEventListener('touchend', function(e) {
+        const touchEndY = e.changedTouches[0].clientY;
+        const touchDiff = Math.abs(touchEndY - touchStartY);
+        
+        // 如果是滚动手势（移动距离 > 10px），不关闭菜单
+        if (touchDiff > 10) return;
+        
+        if (navMenu.classList.contains('active') && 
+            !navMenu.contains(e.target) && 
+            !hamburger.contains(e.target)) {
+            hamburger.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.style.overflow = '';
         }
     });
 
@@ -406,7 +506,9 @@ function smoothScrollTo(target, duration = 800) {
     const targetElement = document.querySelector(target);
     if (!targetElement) return;
 
-    const targetPosition = targetElement.offsetTop - 80; // 考虑统一导航栏高度 (5rem = 80px)
+    const navbar = document.getElementById('navbar');
+    const navbarHeight = navbar ? navbar.offsetHeight : 80; // 动态获取导航栏高度
+    const targetPosition = targetElement.offsetTop - navbarHeight - 10; // 添加额外缓冲
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
     let startTime = null;

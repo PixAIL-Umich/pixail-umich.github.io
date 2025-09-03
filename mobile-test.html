@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>移动设备测试 - Joyce Wang</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .test-section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+        }
+        .test-result {
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+        }
+        .pass { background: #d4edda; color: #155724; }
+        .fail { background: #f8d7da; color: #721c24; }
+        .info { background: #d1ecf1; color: #0c5460; }
+        button {
+            padding: 12px 24px;
+            margin: 5px;
+            border: none;
+            border-radius: 4px;
+            background: #007bff;
+            color: white;
+            cursor: pointer;
+            min-height: 44px;
+            min-width: 44px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+            padding: 8px;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <h1>移动设备功能测试</h1>
+    
+    <div class="test-section">
+        <h2>1. 设备信息检测</h2>
+        <div id="device-info"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>2. 视口尺寸测试</h2>
+        <div id="viewport-info"></div>
+        <button onclick="updateViewportInfo()">刷新视口信息</button>
+    </div>
+    
+    <div class="test-section">
+        <h2>3. 触摸事件测试</h2>
+        <div id="touch-area" style="width: 100%; height: 100px; background: #f0f0f0; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; margin: 10px 0;">
+            触摸这里测试触摸事件
+        </div>
+        <div id="touch-info"></div>
+    </div>
+    
+    <div class="test-section">
+        <h2>4. 导航功能测试</h2>
+        <p>测试主页面的导航功能：</p>
+        <a href="index.html" target="_blank">打开主页面</a>
+        <div class="test-result info">
+            <strong>测试步骤：</strong>
+            <ol>
+                <li>点击上面的链接打开主页面</li>
+                <li>测试汉堡菜单的展开/收起</li>
+                <li>测试导航链接的滚动功能</li>
+                <li>测试页面在不同屏幕方向的显示</li>
+            </ol>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>5. 滚动测试</h2>
+        <div style="height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px;">
+            <p>这是一个可滚动的区域，用于测试滚动功能。</p>
+            <p>在移动设备上，应该能够流畅地滚动。</p>
+            <p>测试内容 1</p>
+            <p>测试内容 2</p>
+            <p>测试内容 3</p>
+            <p>测试内容 4</p>
+            <p>测试内容 5</p>
+            <p>测试内容 6</p>
+            <p>测试内容 7</p>
+            <p>测试内容 8</p>
+            <p>测试内容 9</p>
+            <p>测试内容 10</p>
+        </div>
+    </div>
+
+    <script>
+        // 设备信息检测
+        function detectDevice() {
+            const info = {
+                userAgent: navigator.userAgent,
+                isMobile: /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent),
+                isIOS: /iPad|iPhone|iPod/.test(navigator.userAgent),
+                isAndroid: /Android/.test(navigator.userAgent),
+                screenWidth: screen.width,
+                screenHeight: screen.height,
+                windowWidth: window.innerWidth,
+                windowHeight: window.innerHeight,
+                devicePixelRatio: window.devicePixelRatio || 1
+            };
+            
+            document.getElementById('device-info').innerHTML = `
+                <div class="test-result info">
+                    <strong>设备类型:</strong> ${info.isMobile ? '移动设备' : '桌面设备'}<br>
+                    <strong>操作系统:</strong> ${info.isIOS ? 'iOS' : info.isAndroid ? 'Android' : '其他'}<br>
+                    <strong>屏幕尺寸:</strong> ${info.screenWidth} × ${info.screenHeight}<br>
+                    <strong>窗口尺寸:</strong> ${info.windowWidth} × ${info.windowHeight}<br>
+                    <strong>设备像素比:</strong> ${info.devicePixelRatio}<br>
+                    <strong>User Agent:</strong> ${info.userAgent}
+                </div>
+            `;
+        }
+        
+        // 视口信息更新
+        function updateViewportInfo() {
+            const info = {
+                innerWidth: window.innerWidth,
+                innerHeight: window.innerHeight,
+                outerWidth: window.outerWidth,
+                outerHeight: window.outerHeight,
+                screenWidth: screen.width,
+                screenHeight: screen.height,
+                availWidth: screen.availWidth,
+                availHeight: screen.availHeight
+            };
+            
+            document.getElementById('viewport-info').innerHTML = `
+                <div class="test-result info">
+                    <strong>窗口内部尺寸:</strong> ${info.innerWidth} × ${info.innerHeight}<br>
+                    <strong>窗口外部尺寸:</strong> ${info.outerWidth} × ${info.outerHeight}<br>
+                    <strong>屏幕尺寸:</strong> ${info.screenWidth} × ${info.screenHeight}<br>
+                    <strong>可用屏幕尺寸:</strong> ${info.availWidth} × ${info.availHeight}
+                </div>
+            `;
+        }
+        
+        // 触摸事件测试
+        function setupTouchTest() {
+            const touchArea = document.getElementById('touch-area');
+            const touchInfo = document.getElementById('touch-info');
+            let touchCount = 0;
+            
+            touchArea.addEventListener('touchstart', function(e) {
+                touchCount++;
+                touchInfo.innerHTML = `
+                    <div class="test-result pass">
+                        <strong>触摸开始</strong><br>
+                        触摸点数量: ${e.touches.length}<br>
+                        总触摸次数: ${touchCount}
+                    </div>
+                `;
+            });
+            
+            touchArea.addEventListener('touchmove', function(e) {
+                e.preventDefault();
+                touchInfo.innerHTML = `
+                    <div class="test-result info">
+                        <strong>触摸移动</strong><br>
+                        触摸点数量: ${e.touches.length}<br>
+                        总触摸次数: ${touchCount}
+                    </div>
+                `;
+            });
+            
+            touchArea.addEventListener('touchend', function(e) {
+                touchInfo.innerHTML = `
+                    <div class="test-result pass">
+                        <strong>触摸结束</strong><br>
+                        剩余触摸点: ${e.touches.length}<br>
+                        总触摸次数: ${touchCount}
+                    </div>
+                `;
+            });
+            
+            // 鼠标事件作为后备
+            touchArea.addEventListener('mousedown', function(e) {
+                if (!('ontouchstart' in window)) {
+                    touchCount++;
+                    touchInfo.innerHTML = `
+                        <div class="test-result info">
+                            <strong>鼠标点击</strong> (非触摸设备)<br>
+                            点击次数: ${touchCount}
+                        </div>
+                    `;
+                }
+            });
+        }
+        
+        // 初始化
+        document.addEventListener('DOMContentLoaded', function() {
+            detectDevice();
+            updateViewportInfo();
+            setupTouchTest();
+            
+            // 监听屏幕方向变化
+            window.addEventListener('orientationchange', function() {
+                setTimeout(() => {
+                    updateViewportInfo();
+                }, 100);
+            });
+            
+            window.addEventListener('resize', updateViewportInfo);
+        });
+    </script>
+</body>
+</html>
