@@ -23,6 +23,7 @@
     
     /* Michigan-specific gradients */
     --umich-gradient: linear-gradient(135deg, #00274c 0%, #001a33 50%, #ffcb05 100%);
+    --umich-gradient-mobile: linear-gradient(180deg, #00274c 0%, #001a33 100%); /* 移动设备纯蓝色渐变 */
     --umich-gradient-subtle: linear-gradient(135deg, rgba(0, 39, 76, 0.9) 0%, rgba(255, 203, 5, 0.1) 100%);
     
     /* 动态导航栏高度 */
@@ -1097,6 +1098,7 @@ section {
         padding-top: 7rem; /* 移动设备需要更多上边距 */
         padding-left: 1rem;
         padding-right: 1rem;
+        background: var(--umich-gradient-mobile); /* 使用纯蓝色渐变 */
     }
     
     .hero-container {
@@ -2789,6 +2791,7 @@ section {
         padding-top: 8rem; /* iPhone需要更多空间 */
         padding-left: 0.5rem;
         padding-right: 0.5rem;
+        background: var(--umich-gradient-mobile); /* iPhone也使用纯蓝色渐变 */
     }
     
     .hero-container {
@@ -2894,6 +2897,10 @@ section {
 @media (max-width: 480px) {
     .container {
         padding: 0 0.75rem;
+    }
+    
+    .hero {
+        background: var(--umich-gradient-mobile); /* 480px以下也使用纯蓝色渐变 */
     }
     
     .hero-title {
