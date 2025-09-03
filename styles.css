@@ -1471,6 +1471,76 @@ section {
     min-height: 100vh;
 }
 
+/* Current Members Section */
+.current-members-section {
+    margin-bottom: 4rem;
+}
+
+.current-members-banner {
+    background: linear-gradient(135deg, #ffffff, #f8fafc);
+    border: 2px solid var(--primary-color);
+    border-radius: 12px;
+    padding: 2.5rem;
+    text-align: center;
+    box-shadow: 0 8px 25px rgba(0, 39, 76, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.current-members-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 35px rgba(0, 39, 76, 0.15);
+}
+
+.current-members-banner h3 {
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.current-members-banner h3 i {
+    color: var(--secondary-color);
+}
+
+.current-members-banner p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.join-team-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, var(--primary-color), #1e40af);
+    color: white;
+    padding: 0.8rem 2rem;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 39, 76, 0.2);
+}
+
+.join-team-btn:hover {
+    background: linear-gradient(135deg, #1e40af, var(--primary-color));
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 39, 76, 0.3);
+}
+
+.join-team-btn i {
+    transition: transform 0.3s ease;
+}
+
+.join-team-btn:hover i {
+    transform: translateX(3px);
+}
+
 .mentorship-section {
     max-width: 1200px;
     margin: 0 auto;
