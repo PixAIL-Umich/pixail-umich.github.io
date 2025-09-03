@@ -914,6 +914,29 @@ section {
     align-items: center;
 }
 
+.footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-contact {
+    display: flex;
+    gap: 2rem;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.footer-contact span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-contact i {
+    color: var(--secondary-color);
+}
+
 .footer-links {
     display: flex;
     gap: 2rem;
@@ -966,6 +989,17 @@ section {
 @media (max-width: 768px) {
     .container {
         padding: 0 1rem;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 1.5rem;
+        text-align: center;
+    }
+    
+    .footer-contact {
+        flex-direction: column;
+        gap: 1rem;
     }
     
     .nav-container {
