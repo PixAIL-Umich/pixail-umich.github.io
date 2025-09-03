@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyce Wang - PixAIL | University of Michigan</title>
+    <meta name="description" content="Joyce Wang's academic website and PixAIL (Precision Imaging X AI Laboratory) at University of Michigan, showcasing cutting-edge research in computer vision and biomedical AI.">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;500;600;700&family=Crimson+Text:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- 合并的顶部导航栏 -->
+    <nav class="unified-navbar" id="navbar">
+        <div class="unified-container">
+            <div class="lab-logo">
+                <img src="icon_new.jpeg?v=2" alt="PixAIL Logo" class="lab-icon">
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#research" class="nav-link">Research</a>
+                <a href="#publications" class="nav-link">Publications</a>
+                <a href="people.html" class="nav-link">People</a>
+                <a href="teaching.html" class="nav-link">Teaching</a>
+                <a href="opening.html" class="nav-link">Openings</a>
+                <a href="contact.html" class="nav-link">Contact</a>
+            </div>
+            <div class="umich-logo">
+                <img src="CoE-horiz_rev_RGB-4.svg" alt="University of Michigan Engineering" class="umich-logo-img">
+            </div>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主页部分 -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1 class="hero-title">Joyce Yan-Ran Wang</h1>
+                    <p class="hero-subtitle">Assistant Professor</p>
+                    <p class="hero-affiliation">Biomedical Engineering & Electrical and Computer Engineering<br>University of Michigan, College of Engineering</p>
+                    <div class="hero-description">
+                        <p>Pioneering research at the intersection of computer vision and biomedical data analysis, focusing on machine learning challenges in healthcare and major diseases. Developing multimodal biomedical AI for precision medicine and personalized healthcare.</p>
+                    </div>
+                    <div class="hero-buttons">
+                        <a href="#research" class="btn btn-primary">View Research</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="mailto:wangyanran100@gmail.com" class="social-link" title="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="https://scholar.google.com/citations?user=JW4PI44AAAAJ&hl=en" class="social-link" title="Google Scholar">
+                            <i class="fas fa-graduation-cap"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/yan-ran-joyce-wang-0ab99768" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://x.com/YanranWangJoyce" class="social-link" title="Twitter/X">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="image.png" alt="Joyce Yan-Ran Wang" class="profile-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I am an Assistant Professor jointly appointed in Biomedical Engineering (BME) and Electrical and Computer Engineering (ECE) at the University of Michigan, College of Engineering. I lead the <strong>PixAIL (Precision Imaging <span class="cross-symbol"></span> AI Laboratory)</strong>, where we pioneer cutting-edge research in computer vision and biomedical AI. Prior to joining UMich, I was a Postdoctoral Research Fellow at Stanford AIMI (Artificial Intelligence in Medicine & Imaging) and earned my Ph.D. in Computer Science from Northwestern University.</p>
+                    
+                    <p>My research at PixAIL lies at the intersection of computer vision and biomedical data analysis, focusing on machine learning challenges arising from healthcare and major diseases. I am dedicated to advancing multimodal biomedical AI technologies, with continuous contributions to medical imaging security, precision disease diagnosis, and personalized medicine, covering critical areas such as <strong>Oncology</strong> and <strong>Cardiology</strong>.</p>
+
+                    <div class="umich-motto">
+                        <blockquote>
+                            <p>"Artes, Scientia, Veritas"</p>
+                            <cite>— University of Michigan Motto</cite>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="about-sidebar">
+                    <div class="education">
+                        <h3>Education & Experience</h3>
+                        <div class="education-item">
+                            <div class="degree">Assistant Professor</div>
+                            <div class="school">University of Michigan</div>
+                            <div class="major">BME & ECE (Joint Appointment)</div>
+                            <div class="year">Present</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="degree">Postdoctoral Research Fellow</div>
+                            <div class="school">Stanford University</div>
+                            <div class="major">AIMI (AI in Medicine & Imaging)</div>
+                            <div class="year">2022 - 2024</div>
+                        </div>
+                        <div class="education-item">
+                            <div class="degree">Ph.D. in Computer Science</div>
+                            <div class="school">Northwestern University</div>
+                            <div class="major">Evanston, Illinois</div>
+                            <div class="year">2017 - 2022</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Recent News - 竖向时间线布局 -->
+            <div class="news-section">
+                <h3>Latest News</h3>
+                <div class="news-timeline">
+                    <!-- 2025 年份标题 -->
+                    <div class="news-year">
+                        <h4>2025</h4>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-date">2025 09</div>
+                        <div class="news-content">
+                            <div class="news-icon">
+                                <i class="fas fa-university"></i>
+                            </div>
+                            <div class="news-text">
+                                Joined <strong>University of Michigan</strong> as Assistant Professor in BME & ECE. <strong>PixAIL Laboratory</strong> officially launched!
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2024 年份标题 -->
+                    <div class="news-year">
+                        <h4>2024</h4>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-date">2024 08</div>
+                        <div class="news-content">
+                            <div class="news-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="news-text">
+                                Successfully completed postdoctoral research fellowship at <strong>Stanford AIMI</strong>.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-date">2024 07</div>
+                        <div class="news-content">
+                            <div class="news-icon">
+                                <i class="fas fa-award"></i>
+                            </div>
+                            <div class="news-text">
+                                Our work on medulloblastoma AI prediction is published in <strong>Cancer Cell</strong> (IF: 42.1) as first & corresponding author.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="news-item">
+                        <div class="news-date">2024 06</div>
+                        <div class="news-content">
+                            <div class="news-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="news-text">
+                                Our cardiovascular AI diagnosis work is published in <strong>Nature Medicine</strong> (IF: 59.2) as first & corresponding author.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="research">
+        <div class="container">
+            <h2 class="section-title">PixAIL Research</h2>
+            <div class="research-grid">
+                <div class="research-card">
+                    <div class="research-image">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Video-based Multimodal Foundation Models</h3>
+                        <p>Developing advanced foundation models for video understanding and multimodal reasoning, with fine-grained temporal modeling and post-training optimization for biomedical applications.</p>
+                        <div class="research-tags">
+                            <span class="tag">Foundation Models</span>
+                            <span class="tag">Video Analysis</span>
+                            <span class="tag">Temporal Modeling</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-card">
+                    <div class="research-image">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Multimodal Medical Foundation Models</h3>
+                        <p>Integrating CT/MRI/ultrasound/pathology imaging with clinical structured data and molecular genetics for cross-modal diagnostic analysis and imaging reasoning.</p>
+                        <div class="research-tags">
+                            <span class="tag">Medical AI</span>
+                            <span class="tag">Multimodal Fusion</span>
+                            <span class="tag">Clinical Data</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="research-card">
+                    <div class="research-image">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <div class="research-content">
+                        <h3>Medical Generative Models</h3>
+                        <p>Medical image synthesis and enhancement to improve reconstruction quality and robustness of downstream diagnostic tasks, advancing precision medicine capabilities.</p>
+                        <div class="research-tags">
+                            <span class="tag">Generative AI</span>
+                            <span class="tag">Image Synthesis</span>
+                            <span class="tag">Medical Imaging</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications Section -->
+    <section id="publications" class="publications">
+        <div class="container">
+            <h2 class="section-title">Publications</h2>
+            <div class="publications-intro">
+                <p>My research publications span top-tier venues in medical AI, computer vision, and biomedical imaging. For a complete list, please visit my <a href="https://scholar.google.com/citations?user=JW4PI44AAAAJ&hl=en" target="_blank">Google Scholar profile</a>.</p>
+            </div>
+            <div class="publications-list">
+                <!-- 2024 Publications -->
+                <div class="publication-item featured">
+                    <div class="publication-year">2024</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Screening and diagnosis of cardiovascular disease using artificial intelligence-enabled cardiac magnetic resonance imaging</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.*</strong>, Yang, K., Wen, Y., Wang, P.C., Hu, Y.P., Lai, Y.F., Wang, Y.F., Zhao, K.K., Tang, S.Y., ..., Luo, Y., Liu, D., Zhao, P., Lin, Keldon, Wu, Joseph C., Zhao, S.H.* (*corresponding authors)</p>
+                        <p class="publication-venue"><strong>Nature Medicine</strong> <span class="impact-factor">IF: 59.2</span></p>
+                        <div class="publication-links">
+                            <a href="https://doi.org/10.1038/s41591-024-02971-2" class="pub-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                            <a href="https://github.com/MedAI-Vision/CMR-AI" class="pub-link" target="_blank">
+                                <i class="fas fa-code"></i> Code
+                            </a>
+                            <a href="https://static-content.springer.com/esm/art%3A10.1038%2Fs41591-024-02971-2/MediaObjects/41591%5F2024%5F2971%5FMOESM1%5FESM.pdf" class="pub-link" target="_blank">
+                                <i class="fas fa-file-alt"></i> Supplementary
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item featured">
+                    <div class="publication-year">2024</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Advancing presurgical non-invasive molecular subgroup prediction in medulloblastoma using artificial intelligence and MRI signatures</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.*^</strong>, Wang, P.C., Yan, Z.H., Zhou, Q., Gunturkun, F., Li, P., Hu, Y.S., Wu, W., Zhao, K.K., ..., Vogel, H., Han, S., Lu, T., Wu, F., Gong, J.* (*corresponding authors; ^lead contact)</p>
+                        <p class="publication-venue"><strong>Cancer Cell</strong> <span class="impact-factor">IF: 42.1</span></p>
+                        <div class="publication-links">
+                            <a href="https://www.cell.com/action/showPdf?pii=S1535-6108%2824%2900227-7" class="pub-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                            <a href="https://github.com/MedAI-Vision/MedAI-Brain-MB" class="pub-link" target="_blank">
+                                <i class="fas fa-code"></i> Code
+                            </a>
+                            <a href="https://www.youtube.com/watch?v=bAxA1x1BoP4" class="pub-link" target="_blank">
+                                <i class="fas fa-play"></i> Demo Video
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2023 Publications -->
+                <div class="publication-item">
+                    <div class="publication-year">2023</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">AI Transformers for Radiation Dose Reduction in Serial Whole-Body PET Scans</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.*</strong>, Qu, L., Sheybani, N., Luo, X., Wang, J., Hawk, K., Thakor, A., Gatidis, S., Xiao, X., Pribnow, A., Rubin, D., Daldrup-Link, H.* (*corresponding authors)</p>
+                        <p class="publication-venue">Radiology: Artificial Intelligence</p>
+                        <div class="publication-links">
+                            <a href="https://pubs.rsna.org/doi/pdf/10.1148/ryai.220246" class="pub-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-year">2023</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Low-count whole-body PET/MRI restoration: an evaluation of dose reduction spectrum and five state-of-the-art artificial intelligence models</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.*</strong>, Wang, P.C., Adams, L., Sheybani, N., Qu, L., Sarrami, A., Theruvath, A., Gatidis, S., Ho, T., Zhou, Q., Pribnow, A., Thakor, A., Rubin, D., Daldrup-Link, H.* (*corresponding authors)</p>
+                        <p class="publication-venue">European Journal of Nuclear Medicine and Molecular Imaging</p>
+                        <div class="publication-links">
+                            <a href="https://link.springer.com/article/10.1007/s00259-022-06097-w" class="pub-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2021 Publications -->
+                <div class="publication-item">
+                    <div class="publication-year">2021</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Artificial Intelligence enables whole body Positron Emission Tomography Scans with minimal radiation exposure</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.</strong>, Baratto, L., Hawk, K., Theruvath, J., Pribnow, A., Thakor, A., Gatidis, S., Lu, R., Gummidipundi, S., Garcia-Diaz, J., Rubin, D., Daldrup-Link, H.</p>
+                        <p class="publication-venue">European Journal of Nuclear Medicine and Molecular Imaging</p>
+                        <div class="publication-links">
+                            <a href="https://link.springer.com/article/10.1007/s00259-021-05197-3" class="pub-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2020 Publications -->
+                <div class="publication-item">
+                    <div class="publication-year">2020</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Reducing the Dose of Whole-body PET Scans of Pediatric Cancer Patients to that of a Chest X-ray Using Neural Networks with Attention-weighted Loss Function</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.</strong>, Baratto, L., Hawk, K., Theruvath, J., Pribnow, A., Thakor, A., Lu, R., Rubin, D., Daldrup-Link, H.</p>
+                        <p class="publication-venue">World Molecular Imaging Congress (WMIC)</p>
+                        <div class="publication-links">
+                            <a href="https://www.wmicvirtual.org/sessions/reducing-the-dose-of-whole-body-pet-scans-of-pediatric-cancer-patients-to-that-of-a-chest-x-ray-using-neural-networks-with-attention-weighted-loss-function/" class="pub-link" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> Conference
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2019 Publications -->
+                <div class="publication-item">
+                    <div class="publication-year">2019</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Artificial Intelligence for Bone Cancer Imaging</h3>
+                        <p class="publication-authors">Ho, T., <strong>Wang, YR.J.</strong>, Daldrup-Link, H.</p>
+                        <p class="publication-venue">Radiology</p>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-year">2019</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Deep Learning for Automatic Bone Age Assessment in Children</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.</strong>, Katsaggelos, A., Wang, X., Parrish, T.</p>
+                        <p class="publication-venue">International Conference on Image Processing (ICIP)</p>
+                    </div>
+                </div>
+
+                <!-- 2018 Publications -->
+                <div class="publication-item">
+                    <div class="publication-year">2018</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Efficient Video Object Segmentation via Network Modulation</h3>
+                        <p class="publication-authors">Yang, L., <strong>Wang, YR.J.</strong>, Xiong, X., Yang, J., Katsaggelos, A.</p>
+                        <p class="publication-venue">Conference on Computer Vision and Pattern Recognition (CVPR)</p>
+                        <div class="publication-links">
+                            <a href="https://openaccess.thecvf.com/content%5Fcvpr%5F2018/html/Yang%5FEfficient%5FVideo%5FObject%5FCVPR%5F2018%5Fpaper.html" class="pub-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                        </div>
+                        <div class="publication-award">
+                            <i class="fas fa-award"></i> Women in Computer Vision (WiCV) Funding
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-year">2018</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Modulated Image Segmentation</h3>
+                        <p class="publication-authors">Yang, L., <strong>Wang, YR.J.</strong>, Xiong, X., Yang, J.</p>
+                        <p class="publication-venue">US Patent Application No. 16/192,457</p>
+                    </div>
+                </div>
+
+                <!-- 2016 Publications -->
+                <div class="publication-item">
+                    <div class="publication-year">2016</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">A Deep Symmetry ConvNet for Stroke Lesion Segmentation</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.</strong>, Wang, X., Katsaggelos, A., Parrish, T.</p>
+                        <p class="publication-venue">International Conference on Image Processing (ICIP)</p>
+                        <div class="publication-links">
+                            <a href="https://ieeexplore.ieee.org/document/7532329" class="pub-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                        </div>
+                        <div class="publication-award">
+                            <i class="fas fa-trophy"></i> 1st Place Outstanding Student Poster, Northwestern University
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-year">2016</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">3D Convolutional Neural Network for Chronic Stroke Lesion Segmentation</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.</strong>, Wang, X., Katsaggelos, A., Parrish, T.</p>
+                        <p class="publication-venue">Human Brain Mapping (HBM)</p>
+                    </div>
+                </div>
+
+                <!-- 2013 Publications -->
+                <div class="publication-item">
+                    <div class="publication-year">2013</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Beauty is Here: Evaluating Aesthetics in Videos Using Multimodal Features and Free Training Data</h3>
+                        <p class="publication-authors"><strong>Wang, YR.J.</strong>, Dai, Q., Feng, R., Jiang, Y.</p>
+                        <p class="publication-venue">ACM Multimedia (ACMM)</p>
+                        <div class="publication-links">
+                            <a href="https://dl.acm.org/doi/abs/10.1145/2502081.2508121" class="pub-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="publication-year">2013</div>
+                    <div class="publication-content">
+                        <h3 class="publication-title">Understanding and Predicting Interestingness of Videos</h3>
+                        <p class="publication-authors">Jiang, Y., <strong>Wang, YR.J.</strong>, Feng, R., Xue, X., Zheng, Y., Yang, H.</p>
+                        <p class="publication-venue">Association for the Advancement of Artificial Intelligence (AAAI)</p>
+                        <div class="publication-links">
+                            <a href="https://dl.acm.org/doi/10.5555/2891460.2891615" class="pub-link" target="_blank">
+                                <i class="fas fa-file-pdf"></i> Paper
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2024 Joyce Wang. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#privacy">Privacy Policy</a>
+                    <a href="#terms">Terms of Use</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
