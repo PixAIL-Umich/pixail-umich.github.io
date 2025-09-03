@@ -212,6 +212,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 0; /* 确保不会覆盖后面的内容 */
+    padding-top: 5rem; /* 为固定导航栏留出空间 */
 }
 
 .hero::before {
@@ -1078,6 +1079,7 @@ section {
         box-shadow: var(--shadow-lg);
         padding: 2rem 0;
         justify-content: flex-start;
+        z-index: 999;
     }
     
     .nav-menu.active {
@@ -1103,6 +1105,17 @@ section {
     /* 移动设备统一导航栏调整 */
     .unified-navbar {
         padding: 0.5rem 0;
+        height: auto;
+        min-height: 4rem;
+    }
+    
+    /* 调整页面内容的上边距 */
+    .page-section {
+        padding-top: 5rem;
+    }
+    
+    .hero {
+        padding-top: 5rem;
     }
     
     .unified-container {
@@ -1133,7 +1146,8 @@ section {
     .nav-menu {
         order: 3;
         width: 100%;
-        top: 3.5rem;
+        top: 4rem;
+        z-index: 999;
     }
     
     .nav-lab-name {
@@ -2687,8 +2701,9 @@ section {
     }
     
     .nav-menu {
-        top: 2.8rem;
+        top: 3.5rem;
         padding: 1rem 0;
+        z-index: 999;
     }
     
     .hero-buttons {
@@ -2720,6 +2735,16 @@ section {
     /* iPhone 15 Pro Max 导航栏优化 */
     .unified-navbar {
         padding-top: max(0.2rem, env(safe-area-inset-top));
+        min-height: 3.5rem;
+    }
+    
+    /* 调整iPhone 15 Pro Max的页面内容间距 */
+    .page-section {
+        padding-top: 4.5rem;
+    }
+    
+    .hero {
+        padding-top: 4.5rem;
     }
     
     /* 确保按钮在安全区域内 */
@@ -2760,6 +2785,16 @@ section {
     
     .unified-navbar {
         padding: 0.25rem 0;
+        min-height: 3.5rem;
+    }
+    
+    /* 调整480px断点的页面内容间距 */
+    .page-section {
+        padding-top: 4.5rem;
+    }
+    
+    .hero {
+        padding-top: 4.5rem;
     }
     
     .unified-container {
@@ -2767,8 +2802,9 @@ section {
     }
     
     .nav-menu {
-        top: 3rem;
+        top: 3.5rem;
         padding: 1.5rem 0;
+        z-index: 999;
     }
     
     .hero-buttons {
