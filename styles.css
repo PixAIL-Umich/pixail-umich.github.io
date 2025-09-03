@@ -1195,54 +1195,46 @@ section {
     
     .unified-container {
         padding: 0 1rem;
-        flex-wrap: nowrap;
-        gap: 1rem;
+        display: flex;
+        justify-content: flex-end; /* 只在右侧显示汉堡菜单 */
         align-items: center;
-        justify-content: space-between;
     }
     
-    .lab-logo {
-        order: 1;
-        margin-left: 0;
-        gap: 0.5rem;
-        flex-shrink: 0;
-    }
-    
-    .lab-icon {
-        height: 2rem;
-    }
-    
-    .umich-logo {
-        order: 2;
-        margin-left: auto;
-        margin-right: 1rem;
-        flex-shrink: 0;
-    }
-    
-    .umich-logo-img {
-        height: 2rem;
+    /* 在移动设备上隐藏logo和其他元素 */
+    .lab-logo,
+    .umich-logo,
+    .nav-lab-info {
+        display: none !important;
     }
     
     .nav-menu {
-        order: 3;
+        position: fixed;
+        left: -100%;
+        top: 5rem; /* 匹配移动设备导航栏高度 */
+        flex-direction: column;
+        background-color: var(--primary-color);
         width: 100%;
-        top: 4rem;
-        z-index: 999;
-    }
-    
-    .nav-lab-name {
-        font-size: 1.3rem;
-        padding: 0.3rem 0.7rem;
-    }
-    
-    .nav-lab-desc {
-        font-size: 0.85rem;
+        text-align: center;
+        transition: left 0.3s ease-in-out;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        padding: 2rem 0;
+        justify-content: flex-start;
+        z-index: 1001;
+        max-height: calc(100vh - 5rem);
+        overflow-y: auto;
     }
     
     .hamburger {
-        order: 4;
-        margin-right: 0;
-        flex-shrink: 0;
+        display: flex;
+        min-height: 44px;
+        min-width: 44px;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        z-index: 1002;
+        cursor: pointer;
+        padding: 8px;
+        margin-right: 0.5rem; /* 给右边留一点空间 */
     }
     
     /* 移动设备上调整滚动偏移 */
@@ -2736,11 +2728,7 @@ section {
 
 /* 移动设备触摸优化 */
 @media (max-width: 768px) {
-    /* 移除可能的蓝色左边框 */
-    html, body, main, section, div, .container, .hero, .hero-container {
-        border-left: none !important;
-        border: none !important;
-    }
+    /* 移动设备导航栏简化：只显示汉堡菜单 */
     
     /* 改进触摸目标大小 */
     .nav-link,
@@ -2785,6 +2773,22 @@ section {
     .unified-navbar {
         min-height: 5.5rem;
         padding: 1rem 0;
+    }
+    
+    .unified-container {
+        justify-content: flex-end; /* iPhone上也只显示汉堡菜单 */
+    }
+    
+    /* iPhone上也隐藏logo */
+    .lab-logo,
+    .umich-logo,
+    .nav-lab-info {
+        display: none !important;
+    }
+    
+    .nav-menu {
+        top: 5.5rem; /* 匹配iPhone导航栏高度 */
+        max-height: calc(100vh - 5.5rem);
     }
     
     .hero {
@@ -2897,6 +2901,17 @@ section {
 @media (max-width: 480px) {
     .container {
         padding: 0 0.75rem;
+    }
+    
+    .unified-container {
+        justify-content: flex-end; /* 480px以下也只显示汉堡菜单 */
+    }
+    
+    /* 480px以下也隐藏logo */
+    .lab-logo,
+    .umich-logo,
+    .nav-lab-info {
+        display: none !important;
     }
     
     .hero {
