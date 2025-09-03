@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
     function updateActiveNav() {
         const navbarHeight = navbar.offsetHeight; // 动态获取导航栏高度
-        const scrollPos = window.scrollY + navbarHeight + 20; // 添加额外缓冲
+        const scrollPos = window.scrollY + navbarHeight + 30; // 增加缓冲区
         
         sections.forEach(section => {
             const sectionTop = section.offsetTop;
@@ -507,8 +507,8 @@ function smoothScrollTo(target, duration = 800) {
     if (!targetElement) return;
 
     const navbar = document.getElementById('navbar');
-    const navbarHeight = navbar ? navbar.offsetHeight : 80; // 动态获取导航栏高度
-    const targetPosition = targetElement.offsetTop - navbarHeight - 10; // 添加额外缓冲
+    const navbarHeight = navbar ? navbar.offsetHeight : 100; // 提高默认值
+    const targetPosition = targetElement.offsetTop - navbarHeight - 20; // 增加缓冲区
     const startPosition = window.pageYOffset;
     const distance = targetPosition - startPosition;
     let startTime = null;

@@ -246,7 +246,7 @@ body {
     position: relative;
     overflow: hidden;
     z-index: 0; /* 确保不会覆盖后面的内容 */
-    padding-top: 5rem; /* 为固定导航栏留出空间 */
+    padding-top: 6rem; /* 为固定导航栏留出更多空间 */
 }
 
 .hero::before {
@@ -1087,6 +1087,17 @@ section {
         overflow-x: hidden;
     }
     
+    /* 移动设备hero section调整 */
+    .hero {
+        padding-top: 7rem; /* 移动设备需要更多上边距 */
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .hero-container {
+        padding: 0 1rem;
+    }
+    
     .footer-main {
         gap: 1.5rem;
     }
@@ -1156,34 +1167,38 @@ section {
     
     /* 移动设备统一导航栏调整 */
     .unified-navbar {
-        padding: 0.5rem 0;
+        padding: 0.75rem 0;
         height: auto;
-        min-height: 4rem;
+        min-height: 5rem; /* 增加移动设备导航栏高度 */
         position: fixed;
         width: 100%;
         top: 0;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
     }
     
     /* 调整页面内容的上边距 */
     .page-section {
-        padding-top: 5rem;
+        padding-top: 6rem;
     }
     
     .hero {
-        padding-top: 5rem;
-        min-height: calc(100vh - 4rem);
+        padding-top: 7rem; /* 更新为与上面一致 */
+        min-height: calc(100vh - 5rem);
     }
     
     .unified-container {
-        padding: 0 1rem 0 0;
-        flex-wrap: wrap;
+        padding: 0 1rem;
+        flex-wrap: nowrap;
         gap: 1rem;
+        align-items: center;
+        justify-content: space-between;
     }
     
     .lab-logo {
         order: 1;
-        margin-left: -2rem;
+        margin-left: 0;
         gap: 0.5rem;
+        flex-shrink: 0;
     }
     
     .lab-icon {
@@ -1193,6 +1208,8 @@ section {
     .umich-logo {
         order: 2;
         margin-left: auto;
+        margin-right: 1rem;
+        flex-shrink: 0;
     }
     
     .umich-logo-img {
@@ -1217,11 +1234,13 @@ section {
     
     .hamburger {
         order: 4;
+        margin-right: 0;
+        flex-shrink: 0;
     }
     
     /* 移动设备上调整滚动偏移 */
     section {
-        scroll-margin-top: calc(4rem + 1rem); /* 导航栏高度 + 缓冲 */
+        scroll-margin-top: calc(5rem + 1rem); /* 更新的导航栏高度 + 缓冲 */
     }
     
     .hero-title {
@@ -2746,6 +2765,22 @@ section {
 /* iPhone 15 Pro Max 和类似大屏手机优化 */
 @media (max-width: 430px) {
     .container {
+        padding: 0 0.5rem;
+    }
+    
+    /* iPhone导航栏进一步调整 */
+    .unified-navbar {
+        min-height: 5.5rem;
+        padding: 1rem 0;
+    }
+    
+    .hero {
+        padding-top: 8rem; /* iPhone需要更多空间 */
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+    
+    .hero-container {
         padding: 0 0.5rem;
     }
     
