@@ -302,12 +302,13 @@ body {
 }
 
 .btn-openings {
-    background: linear-gradient(135deg, #ff6b6b, #ee5a52);
-    color: white;
+    background: linear-gradient(135deg, var(--secondary-color), #f5d000);
+    color: var(--primary-color);
+    font-weight: 700;
     position: relative;
     overflow: hidden;
     animation: pulse-glow 2s infinite;
-    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+    box-shadow: 0 4px 15px rgba(255, 203, 5, 0.4);
 }
 
 .btn-openings::before {
@@ -326,9 +327,9 @@ body {
 }
 
 .btn-openings:hover {
-    background: linear-gradient(135deg, #ee5a52, #ff6b6b);
+    background: linear-gradient(135deg, #f5d000, var(--secondary-color));
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+    box-shadow: 0 8px 25px rgba(255, 203, 5, 0.6);
 }
 
 .btn-openings i {
@@ -337,10 +338,10 @@ body {
 
 @keyframes pulse-glow {
     0%, 100% {
-        box-shadow: 0 4px 15px rgba(255, 107, 107, 0.3);
+        box-shadow: 0 4px 15px rgba(255, 203, 5, 0.4);
     }
     50% {
-        box-shadow: 0 4px 20px rgba(255, 107, 107, 0.5);
+        box-shadow: 0 4px 20px rgba(255, 203, 5, 0.6);
     }
 }
 
