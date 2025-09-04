@@ -81,4 +81,4 @@ A: Check that `styles.css` is in the same directory and force refresh (Ctrl+F5 o
 
 ---
 
-For questions, contact Joyce Wang: joyceyr@umich.edu
+For questions, contact Joyce Wang: joycewyr@umich.edu
