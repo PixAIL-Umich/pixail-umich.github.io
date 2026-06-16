@@ -335,16 +335,13 @@ body {
 .center-pill {
     display: inline-flex;
     align-items: center;
-    gap: 0.55rem;
-    padding: 0.55rem 1.05rem;
+    gap: 0.7rem;
+    padding: 0.6rem 1.1rem;
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 203, 5, 0.35);
     color: rgba(255, 255, 255, 0.95);
     text-decoration: none;
-    font-size: 0.92rem;
-    font-weight: 500;
-    letter-spacing: 0.15px;
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease, background 0.25s ease;
@@ -353,8 +350,29 @@ body {
 
 .center-pill i {
     color: #ffcb05;
-    font-size: 0.95rem;
+    font-size: 1.1rem;
     flex-shrink: 0;
+}
+
+.pill-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.15;
+}
+
+.pill-label {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: #ffcb05;
+    margin-bottom: 1px;
+}
+
+.pill-name {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.96);
 }
 
 .center-pill:hover {
@@ -3014,11 +3032,20 @@ section {
     }
 
     .center-pill {
-        padding: 0.45rem 0.85rem;
-        font-size: 0.8rem;
+        padding: 0.5rem 0.9rem;
+        gap: 0.6rem;
     }
 
     .center-pill i {
+        font-size: 1rem;
+    }
+
+    .pill-label {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
+    }
+
+    .pill-name {
         font-size: 0.85rem;
     }
     
