@@ -165,6 +165,10 @@ body {
     letter-spacing: 0.025em;
 }
 
+.nav-link .nav-short {
+    display: none;
+}
+
 .nav-link:hover,
 .nav-link.active {
     color: var(--secondary-color);
@@ -1159,6 +1163,18 @@ section {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    .nav-menu {
+        gap: 1rem;
+    }
+
+    .nav-link .nav-full {
+        display: none;
+    }
+
+    .nav-link .nav-short {
+        display: inline;
+    }
 }
 
 @media (max-width: 768px) {
@@ -1201,6 +1217,7 @@ section {
         flex-direction: column;
         background-color: var(--primary-color);
         width: 100%;
+        margin-left: 0;
         text-align: center;
         transition: left 0.3s ease-in-out;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
@@ -1236,6 +1253,15 @@ section {
         width: 100%;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
         transition: all 0.3s ease;
+    }
+
+    /* 汉堡菜单竖排空间充足，恢复完整标签 */
+    .nav-link .nav-full {
+        display: inline;
+    }
+
+    .nav-link .nav-short {
+        display: none;
     }
     
     .nav-link:hover {
@@ -1289,6 +1315,7 @@ section {
         flex-direction: column;
         background-color: var(--primary-color);
         width: 100%;
+        margin-left: 0;
         text-align: center;
         transition: left 0.3s ease-in-out;
         box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
