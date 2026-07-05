@@ -1297,15 +1297,22 @@ section {
     .unified-container {
         padding: 0 1rem;
         display: flex;
-        justify-content: flex-end; /* 只在右侧显示汉堡菜单 */
+        justify-content: space-between; /* 左侧logo + 右侧汉堡菜单 */
         align-items: center;
     }
-    
-    /* 在移动设备上隐藏logo和其他元素 */
-    .lab-logo,
+
+    /* 移动设备上保留实验室logo，隐藏其余导航元素 */
     .umich-logo,
     .nav-lab-info {
         display: none !important;
+    }
+
+    .lab-logo {
+        left: 0;
+    }
+
+    .lab-icon {
+        height: 2.2rem;
     }
     
     .nav-menu {
@@ -3038,11 +3045,10 @@ section {
     }
     
     .unified-container {
-        justify-content: flex-end; /* iPhone上也只显示汉堡菜单 */
+        justify-content: space-between; /* iPhone上也是左logo右汉堡 */
     }
-    
-    /* iPhone上也隐藏logo */
-    .lab-logo,
+
+    /* iPhone上隐藏除实验室logo外的导航元素 */
     .umich-logo,
     .nav-lab-info {
         display: none !important;
@@ -3205,11 +3211,10 @@ section {
     }
     
     .unified-container {
-        justify-content: flex-end; /* 480px以下也只显示汉堡菜单 */
+        justify-content: space-between; /* 480px以下也是左logo右汉堡 */
     }
-    
-    /* 480px以下也隐藏logo */
-    .lab-logo,
+
+    /* 480px以下隐藏除实验室logo外的导航元素 */
     .umich-logo,
     .nav-lab-info {
         display: none !important;

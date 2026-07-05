@@ -193,24 +193,36 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 滚动动画观察器
+    // threshold: 0 —— 元素进入视口第一像素就触发，避免高卡片长时间保持透明
     const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -50px 0px'
+        threshold: 0,
+        rootMargin: '0px 0px -30px 0px'
     };
 
-    const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('animate-in');
+    const animateElements = document.querySelectorAll('.research-card, .publication-item, .teaching-card, .contact-item, .interest-item');
+
+    if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate-in');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        animateElements.forEach(el => {
+            // 首屏已可见的元素立即显示，不等观察器回调
+            if (el.getBoundingClientRect().top < window.innerHeight) {
+                el.classList.add('animate-in');
+            } else {
+                observer.observe(el);
             }
         });
-    }, observerOptions);
-
-    // 观察需要动画的元素
-    const animateElements = document.querySelectorAll('.research-card, .publication-item, .teaching-card, .contact-item, .interest-item');
-    animateElements.forEach(el => {
-        observer.observe(el);
-    });
+    } else {
+        // 兜底：不支持 IntersectionObserver 时全部直接显示
+        animateElements.forEach(el => el.classList.add('animate-in'));
+    }
 
     // 添加动画CSS类
     const style = document.createElement('style');
@@ -232,8 +244,20 @@ document.addEventListener('DOMContentLoaded', function() {
         .contact-item,
         .interest-item {
             opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateY(20px);
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .research-card,
+            .publication-item,
+            .teaching-card,
+            .contact-item,
+            .interest-item {
+                opacity: 1;
+                transform: none;
+                transition: none;
+            }
         }
 
         .research-card.animate-in,
@@ -293,14 +317,14 @@ document.addEventListener('DOMContentLoaded', function() {
         height: 3rem;
         border-radius: 50%;
         background: var(--primary-color);
-        color: white;
+        color: var(--secondary-color);
         border: none;
         cursor: pointer;
         display: none;
         align-items: center;
         justify-content: center;
         font-size: 1.2rem;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+        box-shadow: 0 4px 12px rgba(0, 39, 76, 0.35);
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         z-index: 1000;
     `;
@@ -327,12 +351,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // 鼠标悬停效果
     backToTopBtn.addEventListener('mouseenter', function() {
         this.style.transform = 'translateY(-2px) scale(1.1)';
-        this.style.boxShadow = '0 6px 20px rgba(37, 99, 235, 0.4)';
+        this.style.boxShadow = '0 6px 20px rgba(0, 39, 76, 0.45)';
     });
 
     backToTopBtn.addEventListener('mouseleave', function() {
         this.style.transform = 'translateY(0) scale(1)';
-        this.style.boxShadow = '0 4px 12px rgba(37, 99, 235, 0.3)';
+        this.style.boxShadow = '0 4px 12px rgba(0, 39, 76, 0.35)';
     });
 
     // 打字机效果（可选）
@@ -486,16 +510,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // 优化滚动事件处理
+    // 注意：不要给 .hero 加视差 translateY —— hero 会跟随滚动
+    // 盖住下方内容，并在移动端造成卡顿
     const debouncedScrollHandler = debounce(function() {
         updateActiveNav();
-        
-        // 视差效果（可选）
-        const scrolled = window.pageYOffset;
-        const parallax = document.querySelector('.hero');
-        if (parallax) {
-            const speed = scrolled * 0.5;
-            parallax.style.transform = `translateY(${speed}px)`;
-        }
     }, 10);
 
     window.addEventListener('scroll', debouncedScrollHandler);
