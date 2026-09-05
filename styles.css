@@ -1868,6 +1868,16 @@ section {
     z-index: 2;
 }
 
+a.member-photo {
+    display: block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a.member-photo:hover {
+    transform: scale(1.03);
+    box-shadow: 0 8px 22px rgba(0, 39, 76, 0.3);
+}
+
 .member-photo img {
     width: 100%;
     height: 100%;
@@ -1886,6 +1896,16 @@ section {
     font-weight: 700;
     color: var(--primary-color);
     margin: 0 0 0.25rem;
+}
+
+.member-name a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.member-name a:hover {
+    text-decoration: underline;
+    text-underline-offset: 3px;
 }
 
 .member-role {
