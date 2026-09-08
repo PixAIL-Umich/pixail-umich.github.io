@@ -703,12 +703,6 @@ section {
 
 .major {
     color: var(--text-secondary);
-    margin-bottom: 0.25rem;
-}
-
-.year {
-    font-size: 0.9rem;
-    color: var(--text-light);
 }
 
 .awards ul {
