@@ -2453,6 +2453,69 @@ a.member-photo:hover {
     color: #8b5cf6;
 }
 
+#postdoc,
+#postdoc-flyer {
+    scroll-margin-top: 6rem;
+}
+
+.flyer-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.45rem;
+    margin-top: 1.25rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+
+.flyer-link img {
+    width: 100%;
+    max-width: 220px;
+    border-radius: 0.5rem;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: var(--transition);
+}
+
+.flyer-link:hover {
+    color: #d73027;
+}
+
+.flyer-link:hover img {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+}
+
+.postdoc-flyer {
+    max-width: 720px;
+    margin: 0 auto 1rem;
+    text-align: center;
+}
+
+.postdoc-flyer-link {
+    display: block;
+}
+
+.postdoc-flyer img {
+    width: 100%;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    border: 1px solid #e2e8f0;
+}
+
+.postdoc-flyer p {
+    margin-top: 0.85rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.postdoc-flyer p a {
+    color: var(--primary-color);
+    font-weight: 700;
+}
+
 .position-card > p {
     font-size: 1.1rem;
     font-weight: 600;
@@ -2562,8 +2625,9 @@ a.member-photo:hover {
     font-size: 1.3rem;
     margin-bottom: 1rem;
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 0.5rem;
+    line-height: 1.35;
 }
 
 .research-area h4 i {
@@ -2583,9 +2647,10 @@ a.member-photo:hover {
 
 .research-area li {
     color: var(--text-primary);
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.75rem;
     padding-left: 1rem;
     position: relative;
+    line-height: 1.55;
 }
 
 .research-area li::before {

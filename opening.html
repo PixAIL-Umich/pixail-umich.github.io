@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Openings - Dr. Joyce Yan-Ran Wang</title>
     <link rel="icon" type="image/svg+xml" href="Block_M-Hex.svg">
-    <link rel="stylesheet" href="styles.css?v=2026090902">
+    <link rel="stylesheet" href="styles.css?v=2026090903">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,7 +47,7 @@
                 <h3><i class="fas fa-graduation-cap"></i>We Are Actively Recruiting!</h3>
                 <p><strong>Postdoctoral researchers</strong> (immediate start) and <strong>several PhD openings</strong> (Fall 2027), plus Research Assistant positions</p>
                 <div class="positions-grid">
-                    <div class="position-card postdoc">
+                    <div class="position-card postdoc" id="postdoc">
                         <h4><i class="fas fa-microscope"></i>Postdoc Researchers</h4>
                         <p>Highly competitive salary and comprehensive benefits</p>
                         <ul>
@@ -55,6 +55,10 @@
                             <li>2-3 year positions</li>
                             <li>Independent research opportunities</li>
                         </ul>
+                        <a href="#postdoc-flyer" class="flyer-link">
+                            <img src="postdoc-PixAIL.jpg" alt="PixAIL postdoctoral researcher posting flyer">
+                            <span>View posting flyer</span>
+                        </a>
                     </div>
                     <div class="position-card phd">
                         <h4><i class="fas fa-user-graduate"></i>PhD Students</h4>
@@ -75,6 +79,12 @@
                         </ul>
                     </div>
                 </div>
+                <div class="postdoc-flyer" id="postdoc-flyer">
+                    <a href="#postdoc" class="postdoc-flyer-link">
+                        <img src="postdoc-PixAIL.jpg" alt="PixAIL postdoctoral researcher posting: Multimodal and Agentic AI for Medicine, 1 to 2 positions, immediate start">
+                    </a>
+                    <p>Postdoctoral posting for <a href="#postdoc">Postdoc Researchers</a> · 1–2 positions · Immediate start</p>
+                </div>
                 <div class="apply-now">
                     <a href="https://docs.google.com/forms/d/e/1FAIpQLSd2MsZBjk9FfoSagIrGPIUWpsZh09x28k3oqINthpZ1kGKzvw/viewform?usp=dialog" class="apply-button" target="_blank" rel="noopener noreferrer">
                         <i class="fas fa-paper-plane"></i>
@@ -87,34 +97,35 @@
             <div class="opening-section">
                 <h3 class="subsection-title"><i class="fas fa-microscope"></i>Research Directions</h3>
                 <p class="opening-intro">
-                    Our research group focuses on core problems in <strong>Foundation Models</strong>, <strong>Machine Learning</strong>, and <strong>Biomedical AI</strong> 
-                    (Theory + Algorithms + Applications), including both novel algorithm and model development, as well as multimodal medical application deployment.
+                    PixAIL works at the intersection of <strong>multimodal foundation models</strong> and <strong>agentic AI for medicine</strong>, spanning long-context reasoning, imaging–EHR fusion, and clinically grounded interactive agents.
                 </p>
                 
                 <div class="research-areas">
                     <div class="research-area">
-                        <h4><i class="fas fa-brain"></i>Machine Learning Algorithms</h4>
-                        <p>Model and algorithm innovation</p>
+                        <h4><i class="fas fa-brain"></i>LLMs, VLMs &amp; Temporal Reasoning</h4>
                         <ul>
-                            <li><strong>Video-based Multimodal Foundation Models</strong></li>
-                            <li><strong>Fine-grained Temporal Understanding</strong></li>
-                            <li><strong>Multimodal Reasoning & Post-training</strong></li>
+                            <li>Long-context multimodal reasoning across clinical text, imaging, video, structured EHR data, and longitudinal patient timelines.</li>
+                            <li>Video-based foundation models for long-horizon spatiotemporal representation learning, temporal understanding, and fine-grained frame- and phase-level alignment.</li>
+                            <li>Multimodal post-training and reasoning, including instruction tuning, preference optimization, RL-style alignment, and test-time reasoning.</li>
                         </ul>
                     </div>
 
                     <div class="research-area">
-                        <h4><i class="fas fa-stethoscope"></i>Multi-modal Foundation Models</h4>
-                        <p>Medical multimodal models integrating CT/MRI/Ultrasound/Pathology imaging, clinical structured data, and molecular & genetic data for imaging reasoning and cross-modal diagnostic analysis.</p>
+                        <h4><i class="fas fa-layer-group"></i>Multimodal Foundation Models</h4>
+                        <ul>
+                            <li>Fusion across CT, MRI, ultrasound, and digital pathology with different resolutions, geometries, and acquisition protocols.</li>
+                            <li>Integration of imaging with structured clinical, molecular, and genetic data for cross-modal diagnostic and clinical reasoning.</li>
+                            <li>Calibration, uncertainty estimation, and robustness under distribution shift.</li>
+                        </ul>
                     </div>
 
                     <div class="research-area">
-                        <h4><i class="fas fa-magic"></i>Generative Models</h4>
-                        <p>Medical generative models for image synthesis and enhancement, improving reconstruction quality and robustness for downstream diagnostic tasks.</p>
-                    </div>
-
-                    <div class="research-area">
-                        <h4><i class="fas fa-robot"></i>Multimodal Agents</h4>
-                        <p>Medical multimodal intelligent agents based on video/imaging/clinical text inputs, building interactive agent frameworks for automated diagnosis, report generation, and clinical decision support, exploring the complete pipeline from models to clinical workflows.</p>
+                        <h4><i class="fas fa-robot"></i>Multimodal Agents for Medicine</h4>
+                        <ul>
+                            <li>Interactive agents over video, imaging, clinical text, and patient records, with planning, retrieval, tool use, and auditable evidence chains.</li>
+                            <li>Automated diagnosis, report generation, and clinical decision support, evaluated against clinician-derived ground truth.</li>
+                            <li>Translation into clinical workflows, including human-AI collaboration, deployment constraints, safety, and failure modes such as automation bias.</li>
+                        </ul>
                     </div>
                 </div>
 
@@ -135,6 +146,7 @@
                         <h4><i class="fas fa-trophy"></i>Academic Rankings</h4>
                         <ul>
                             <li><strong>Biomedical Engineering (BME)</strong>: Ranked #3 globally in 2025 EduRank, #8 in US News & World Report graduate programs</li>
+                            <li><strong>Electrical Engineering and Computer Science (EECS)</strong>: Ranked #6 globally in EduRank Computer Science, #11 in US News Computer Science (#5 Electrical Engineering, #7 Computer Engineering, 2026)</li>
                         </ul>
                     </div>
 
